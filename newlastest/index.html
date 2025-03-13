@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        body { font-family: sans-serif; }
+        .#login-form { width: 300px; margin: 50px auto; }
+        .#pdf-sections { display: none; }
+        .pdf-section { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div id="login-form">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Email"><br><br>
+        <button onclick="checkEmail()">Login</button>
+        <p id="error-message" style="color: red;"></p>
+    </div>
+
+    <div id="pdf-sections">
+        <div class="pdf-section">
+            <h3>Section 1</h3>
+            <a href="pdfs/example1.pdf" target="_blank">Example PDF 1</a><br>
+            <a href="pdfs/example2.pdf" target="_blank">Example PDF 2</a>
+        </div>
+        <div class="pdf-section">
+            <h3>Section 2</h3>
+            <a href="pdfs/example3.pdf" target="_blank">Example PDF 3</a><br>
+            <a href="pdfs/example4.pdf" target="_blank">Example PDF 4</a>
+        </div>
+    </div>
+
+    <script>
+        const allowedEmails = ['test@example.com', 'user@example.com'];
+    
+        function checkEmail() {
+            const email = document.getElementById('email').value;
+            if (allowedEmails.includes(email)) {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('pdf-sections').style.display = 'block';
+            } else {
+                document.getElementById('error-message').textContent = 'Email not authorized.';
+            }
+        }
+    </script>
+</body>
+</html>
